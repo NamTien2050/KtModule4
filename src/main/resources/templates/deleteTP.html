@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container" style="text-align: center">
+    <h1><b>Chi Tiết Thành Phố</b></h1>
+    <form method="post">
+        <h1><b>Bạn có chắc chắn muốn xóa thành phố này không ?</b></h1>
+
+        <input hidden th:value="${deTP.id}">
+    </form>
+    <tr>
+        <td>
+            <a th:href="@{/delete/{id}(id=${deTP.id})}" class="btn btn-warning btn-primary">Thoát</a>
+        </td>
+        <td>
+            <a th:href="@{/edit/{id}(id=${deTP.id})}" class="btn btn-danger btn-primary">Xóa</a>
+        </td>
+    </tr>
+</div>
+</body>
+</html>

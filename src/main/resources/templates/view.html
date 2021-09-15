@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container" style="text-align: center">
+    <h2>Chi Tiết Thành Phố</h2>
+    <a class="m-0 float-right btn btn-success btn-sm" th:href="@{/show}">Xem danh sách Thành Phố<i
+            class="fas fa-chevron-right"></i></a>
+    <form>
+        <table class="table">
+            <tbody>
+            <thead th:object="${tp}">
+            <tr><input th:field="*{id}" hidden></tr>
+            <br><br>
+            <tr>Tên: </tr>
+            <tr th:text="*{tenTP}"></tr>
+            <br><br>
+            <tr>Quốc Gia: </tr>
+            <tr th:text="${tp.quocGia.getTenQuocGia()}"></tr>
+            <br><br>
+            <tr>Diện Tích: </tr>
+            <tr th:text="*{dienTich}"></tr>
+            <br><br>
+            <tr>Dân Số: </tr>
+            <tr th:text="*{danSo}"></tr>
+            <br><br>
+            <tr>GDP: </tr>
+            <tr th:text="*{GDP}"></tr>
+            <br><br>
+            <tr>Giới Thiệu: </tr>
+            <tr th:text="*{moTaTP}"></tr>
+            <br><br>
+            </thead>
+            </tbody>
+        </table>
+
+    </form>
+    <tr>
+        <td>
+            <a th:href="@{/edit/{id}(id=${tp.id})}" class="btn btn-warning btn-primary">Chỉnh sửa</a>
+        </td>
+        <td>
+            <a th:href="@{/delete/{id}(id=${tp.id})}" class="btn btn-danger btn-primary">Xóa</a>
+        </td>
+    </tr>
+</div>
+
+</body>
+</html>
